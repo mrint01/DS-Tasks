@@ -1,0 +1,61 @@
+<ion-header>
+  <div class="bg2-img">
+  <ion-toolbar class="header">
+
+      <ion-back-button slot="start"></ion-back-button>
+
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content >
+
+  <div class="bg2-img">
+    <div class="divlogin ion-padding">
+
+  
+  <form [formGroup]="signUpForm" (ngSubmit)="signUpWithEmail()">
+    <ion-list class="item-background-color" lines="full">
+      <ion-item >
+        <ion-input type="email" placeholder="Email" formControlName="email" clearInput autocapitalize="off" inputmode="email"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div class="error-message" *ngIf="signUpForm.get('email').hasError(validation.type) && (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item >
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div class="error-message" *ngIf="signUpForm.get('password').hasError(validation.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+      <!-- checkbox -->
+      <ion-checkbox class="checkboxone" color="secondary"></ion-checkbox>
+      <div class="div2"><ion-label class="labelcheck">  I have read and I agree with the terms and conditions of use on the App</ion-label></div>
+    <ion-button class="btninscri" type="submit" expand="block" [disabled]="!signUpForm.valid">Sign Up</ion-button>
+    <div class="error-container" *ngIf="submitError">
+      <div class="error-message">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <span>{{ submitError }}</span>
+      </div>
+    </div>
+   
+  </form>
+
+
+  </div>
+  </div>
+</ion-content>

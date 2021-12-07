@@ -1,0 +1,45 @@
+.bg-img {
+  padding: 1px;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../../assets/bg6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header{
+
+  --background:transparent;
+  color: white;
+  font-weight: 500;
+ }
+ .logout{
+   margin-right: 10px;
+ }
+
+ h1 {
+  color: white;
+  margin-left: 20px;
+  font-size: 30px;
+}
+h5 {
+  color: #e8e8e8;
+  margin-left: 20px;
+  margin-top: -7px;
+  font-size: medium;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+.add-button {
+  --background: #383a3e;
+  position: absolute;
+  bottom: 5px;
+  width: 96%;
+  --color: #ffffff;
+  margin-left: 2%;
+}
+.refreshbtn{
+  right: 0;
+  position: absolute;
+  margin-top: -80px;
+  margin-right: 20px;
+}

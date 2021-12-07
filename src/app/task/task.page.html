@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="bg2-img">
+
+    
+    <!-- Thos are the two tabs
+              tab="name of the page that must go to ,,,
+              "-->
+  <ion-tabs >
+    <ion-tab-bar  class="tabs" slot="bottom">
+      <ion-tab-button   tab="todo">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>To Do</ion-label>
+        <ion-badge *ngFor="let task of tasks">{{ task.tasklength  }}</ion-badge>
+      </ion-tab-button>
+      <ion-tab-button  (click)="getTasks()" tab="done">
+        <ion-icon  name="checkmark-done-circle"></ion-icon>
+        <ion-label>Done</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  </div>
+</ion-content>

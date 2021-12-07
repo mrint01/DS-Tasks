@@ -1,0 +1,62 @@
+<ion-header>
+  <div class="bg-img">
+  <ion-toolbar class="header">
+      <ion-icon style="zoom:1.5;" (click)="signOut()" class="logout" name="log-out-outline" slot="end" ></ion-icon>
+    <ion-title  class="ion-text-left" >ToDo List</ion-title>
+  </ion-toolbar>
+</div>
+</ion-header>
+
+<ion-content>
+  <div class="bg-img">
+    <h1><b>Aujourd'hui</b></h1>
+    <!-- show the current Date -->
+    <h5>{{ currentDate }}</h5>
+
+    <ion-button class="refreshbtn" (click)="getTasks()">
+      <ion-icon name="refresh" slot="icon-only"></ion-icon>
+    </ion-button>
+
+
+  <!-- Form To show the Tasks from FireBase-->
+    <ion-card  *ngFor="let task of tasks">
+      <ion-item-sliding>
+        <ion-item lines="none">
+          <ion-checkbox (ionChange)="changeCheckState(task)" color="success" [(ngModel)]="task.checked" slot="start"></ion-checkbox>
+          <ion-label>
+            <h2 *ngIf="!task.checked">{{ task.text }}</h2><!-- if the task are not checked-->
+            <h2 *ngIf="task.checked" style="text-decoration:line-through;color:red">{{ task.text }}</h2><!-- if the task are checked-->
+            <p>{{ task.hour }}</p>
+          </ion-label>
+        </ion-item>
+
+        <!-- slide to left to delete the task , we know u dont ask for it but we like it so we make it :) -->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deleteTask(task)">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+
+    <!-- if we click on the button add new task will show the form-->
+    <ion-card *ngIf="addTask">
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input>
+        <ion-button (click)="addTaskToFirebase()" shape="round" slot="end">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card>
+    <ion-button *ngIf="!addTask" (click)="showForm()" expand="block" class="add-button">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Ajouter une tâche
+    </ion-button>
+
+    <ion-button *ngIf="addTask" (click)="showForm()" expand="block" class="add-button">
+      <ion-icon name="close" slot="start"></ion-icon>
+      Annuler
+    </ion-button>
+
+    </div>
+</ion-content>

@@ -1,0 +1,49 @@
+
+.error-container{
+  color: red;
+}
+
+
+.bg-img {
+  padding: 1px;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.avatars{
+  margin: auto;
+  margin-top: 110px;
+  width: 100px;
+  height: 100px;
+}
+.divlogin{
+  margin-top: 50px;
+}
+
+.divlogin ion-item{
+  margin-top: 10px;
+}
+.item-background-color{
+  --ion-item-background: trensparent;
+}
+.labellogin{
+  color: aliceblue;
+  font-weight: 500;
+
+}
+.btnlogin{
+  --background: rgb(39, 38, 38);
+}
+.btninscri{
+  --background: forestgreen;
+  width: 47%;
+  color: black;
+  font-weight: 600;
+}
+.btnforget{
+  --background: rgb(5, 24, 49);
+  width: 50%;
+}
+
